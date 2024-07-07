@@ -1,7 +1,5 @@
 #!/bin/bash
 
-git clone https://github.com/kai3581/misc.git dataloading
-cd dataloading
 gcc -o dataload dataload.c
 gcc -o dataalloc dataalloc.c
 chmod +x loaddata.sh
@@ -15,5 +13,4 @@ mv dataload dataalloc loaddata.sh cleardata.sh bin
 export PATH="/gscratch/uwb/NETID/dataloading/bin:$PATH" #add to PATH
 rm dataload.c
 rm dataalloc.c
-rm dataloading.c
-
+rm dataloading.sh

@@ -1,5 +1,5 @@
 #!/bin/bash
-dataDir=./dataloading/data_dir
+dataDir=/gscratch/uwb/NETID/dataloading/data_dir
 
 rm $dataDir/train/* 2> /dev/null 
 rm $dataDir/test/* 2> /dev/null

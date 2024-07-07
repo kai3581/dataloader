@@ -3,6 +3,8 @@
 #include<fcntl.h>
 #include<unistd.h>
 
+#define DATA_FILE /gscratch/uwb/NETID/dataloading/data_dir/.data_content
+
 int main(int argc, char *argv[]){
 
 	DIR *d;
@@ -11,7 +13,7 @@ int main(int argc, char *argv[]){
 	d = opendir(argv[1]);
 	if (d){
 	
-		f = fopen(".data_content","w");
+		f = fopen(DATA_FILE,"w");
 		if (f){
 
 			readdir(d); //empty .

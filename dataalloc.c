@@ -10,6 +10,8 @@
 //			linux/limits.h, strrchr(), symlink()
 //arguments: absolute path, .ext, number, train, test, validate
 #define S PATH_MAX
+//dataPath is the path to the data_dir
+#define DATA_FILE /gscratch/uwb/NETID/dataloading/data_dir/.data_content_shuf
 
 int main(int argc, char **argv){
 
@@ -22,7 +24,7 @@ int main(int argc, char **argv){
 	char buffer1[S];
 	char buffer2[S];
 	int size;
-	f = fopen("./.data_content_shuf","r"); //getting shuffled input
+	f = fopen("/.data_content_shuf","r"); //getting shuffled input
 	for(size = atoi(argv[3]); size != 0; size){ //if more buffers to fill
 		if(subdirsize == 0){
 
@@ -30,7 +32,7 @@ int main(int argc, char **argv){
 			subdirsize = atoi(argv[subdir + 4]); //input size
 //			printf("subdirbuf:%s\n",subdirs[subdir]);
 strcpy(subdirs[subdir], getcwd(subdirs[subdir], S)); // absolute prefix
-		strcat(subdirs[subdir], "/data_dir/"); // path prefix
+		strcat(subdirs[subdir], "/dataloading/data_dir/"); // path prefix
 			if(subdir == 0)		
 		strcat(subdirs[subdir], "train/"); //concat end
 			else if(subdir == 1)
