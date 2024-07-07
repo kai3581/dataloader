@@ -36,6 +36,7 @@ int main(int argc, char **argv){
 			printf("subdirit:%d\n",subdir);
 //			printf("subdirbuf:%s\n",subdirs[subdir]);
 		strcpy(subdirs, DD_PRE); // absolute prefix to data_dir
+		printf("appendpre\n");
 			if(subdir == 0)		
 		strcat(subdirs, "train/"); //concat end
 			else if(subdir == 1)
