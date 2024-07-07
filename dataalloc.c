@@ -19,7 +19,7 @@ int main(int argc, char **argv){
 	FILE *f;
 	int subdir = -1;
 	int subdirsize = 0;
-	char subdirs[3][S];
+	char subdirs[S];
 	char *chptr, *subdirend;
 
 	char buffer1[S];
@@ -32,14 +32,14 @@ int main(int argc, char **argv){
 			subdir++; //update subdir
 			subdirsize = atoi(argv[subdir + 4]); //input size
 //			printf("subdirbuf:%s\n",subdirs[subdir]);
-		strcpy(subdirs[subdir], DD_PRE); // absolute prefix to data_dir
+		strcpy(subdirs, DD_PRE); // absolute prefix to data_dir
 			if(subdir == 0)		
-		strcat(subdirs[subdir], "train/"); //concat end
+		strcat(subdirs, "train/"); //concat end
 			else if(subdir == 1)
-		strcat(subdirs[subdir], "test/"); //concat end
+		strcat(subdirs, "test/"); //concat end
 			else	
-		strcat(subdirs[subdir], "validate/"); //concat end
-		subdirend = strchr(subdirs[subdir],'\0');
+		strcat(subdirs, "validate/"); //concat end
+		subdirend = strrchr(subdirs,'\0');
 		}
 
 		fgets(buffer1, S, f); //get line to buffer
@@ -55,10 +55,10 @@ int main(int argc, char **argv){
 				strcat(buffer2, buffer1); //copy over filename
 				//^^^is source
 				
-				strcat(subdirs[subdir], buffer1); //dest
+				strcat(subdirs, buffer1); //dest
 			//	printf("data:%s\n", buffer2);
 	//			printf("linkto:%s\n", subdirs[subdir]);
-				symlink(buffer2, subdirs[subdir]);
+				symlink(buffer2, subdirs);
 				subdirsize--; //decrease subdir request
 				size--; //decrease total request
 				*subdirend = '\0'; //end mark
