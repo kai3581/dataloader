@@ -19,8 +19,8 @@ cd dataloading
 
 sed -i 's/NETID/student/g' ./*
 
-chmod +x dataloading.sh
+chmod +x dataloading_installer.sh
 
-./dataloading.sh
+./dataloading_installer.sh
 
 source ~/.bashrc
