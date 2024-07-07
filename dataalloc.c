@@ -35,17 +35,19 @@ int main(int argc, char **argv){
 			subdirsize = atoi(argv[subdir + 4]); //input size
 			printf("subdirit:%d\n",subdir);
 //			printf("subdirbuf:%s\n",subdirs[subdir]);
-		strcpy(subdirs, DD_PRE); // absolute prefix to data_dir
-		printf("appendpre\n");
+			strcpy(subdirs, DD_PRE); // absolute prefix to data_dir
+			printf("appendpre\n");
 			if(subdir == 0)		
-		strcat(subdirs, "train/"); //concat end
+				strcat(subdirs, "train/"); //concat end
 			else if(subdir == 1)
-		strcat(subdirs, "test/"); //concat end
+				strcat(subdirs, "test/"); //concat end
 			else	
-		strcat(subdirs, "validate/"); //concat end
+				strcat(subdirs, "validate/"); //concat end
+			
 		subdirend = strrchr(subdirs,'\0');
-		}
 		printf("appendedsubdir\n");
+		}
+		
 
 		if(fgets(buffer1, S, f)){ //get line to buffer
 			chptr = strrchr(buffer1, '\n'); //replace \n delimiter
