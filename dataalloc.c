@@ -33,7 +33,7 @@ int main(int argc, char **argv){
 			printf("selecting subdir\n");
 			subdir++; //update subdir
 			subdirsize = atoi(argv[subdir + 4]); //input size
-			printf("subdirit:%d\n");
+			printf("subdirit:%d\n",subdir);
 //			printf("subdirbuf:%s\n",subdirs[subdir]);
 		strcpy(subdirs, DD_PRE); // absolute prefix to data_dir
 			if(subdir == 0)		
