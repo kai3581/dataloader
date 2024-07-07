@@ -26,9 +26,11 @@ int main(int argc, char **argv){
 	char buffer2[S];
 	int size;
 	f = fopen(DATA_FILE,"r"); //getting shuffled input
+	printf("opened file\n");
 	for(size = atoi(argv[3]); size != 0; size){ //if more buffers to fill
 		if(subdirsize == 0){
-
+			
+			printf("selecting subdir\n");
 			subdir++; //update subdir
 			subdirsize = atoi(argv[subdir + 4]); //input size
 //			printf("subdirbuf:%s\n",subdirs[subdir]);
@@ -67,6 +69,7 @@ int main(int argc, char **argv){
 		}
 	}
 
+	printf("closed file\n");
 	fclose(f); //now copy the right files to the right directories	
 
 	return 0;
