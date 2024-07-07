@@ -73,7 +73,9 @@ int main(int argc, char **argv){
 			}
 		}else{
 			printf("%d too few '%s' files", size, argv[4]);
+			break;
 		}
+	}
 
 	printf("closed file\n");
 	fclose(f); //now copy the right files to the right directories	
