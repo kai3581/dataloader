@@ -7,10 +7,9 @@ chmod +x cleardata.sh
 mkdir -p data_dir/train #create data directory
 mkdir -p data_dir/test
 mkdir -p data_dir/validate
+mkdir etc
 touch data_dir/.data_content data_dir/.data_content_shuf
 mkdir bin #isolate executables
 mv dataload dataalloc loaddata.sh cleardata.sh bin
 echo "export PATH="/gscratch/uwb/NETID/dataloading/bin:$PATH"" >> ~/.bashrc #add to PATH
-rm dataload.c
-rm dataalloc.c
-rm dataloading.sh
+mv dataload.c dataalloc.c dataloading_installer.sh etc
