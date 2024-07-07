@@ -1,5 +1,5 @@
 #!/bin/bash
-dataPath=/gscratch/uwb/NETID/gist/
+dataPath=/gscratch/uwb/NETID/PATH_TO_DATA
 dataDir=/gscratch/uwb/NETID/dataloading/data_dir
 ext=.c
 dataSize=3
