@@ -1,6 +1,6 @@
 #!/bin/bash
-dataPath=/gscratch/uwb/bodhik/gist/
-dataDir=/gscratch/uwb/bodhik/dataloading/data_dir
+dataPath=/gscratch/uwb/NETID/gist/
+dataDir=/gscratch/uwb/NETID/dataloading/data_dir
 ext=.c
 dataSize=3
 dataTrain=1
