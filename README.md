@@ -17,7 +17,7 @@ git clone https://github.com/kai3581/dataloading.git
 
 cd dataloading
 
-sed -i 's/NETID/student/g'
+sed -i 's/NETID/student/g' ./*
 
 chmod +x dataloading.sh
 
