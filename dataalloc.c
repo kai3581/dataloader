@@ -11,7 +11,7 @@
 //arguments: absolute path, .ext, number, train, test, validate
 #define S PATH_MAX
 //dataPath is the path to the data_dir
-#define DATA_FILE /gscratch/uwb/NETID/dataloading/data_dir/.data_content_shuf
+#define DATA_FILE "/gscratch/uwb/NETID/dataloading/data_dir/.data_content_shuf"
 
 int main(int argc, char **argv){
 
