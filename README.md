@@ -22,3 +22,5 @@ sed -i 's/NETID/student/g' ./*
 chmod +x dataloading.sh
 
 ./dataloading.sh
+
+source ~/.bashrc
