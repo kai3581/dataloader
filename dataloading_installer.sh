@@ -11,6 +11,6 @@ mkdir lib
 touch data_dir/.data_content data_dir/.data_content_shuf
 mkdir bin #isolate executables
 mv dataload dataalloc loaddata.sh cleardata.sh bin
-alias loaddata="./gscratch/uwb/NETID/dataloading/bin/loaddata.sh"
-alias cleardata="./gscratch/uwb/NETID/dataloading/bin/cleardata.sh"
+echo "alias loaddata="./gscratch/uwb/NETID/dataloading/bin/loaddata.sh"" >> ~/.bashrc
+echo "alias cleardata="./gscratch/uwb/NETID/dataloading/bin/cleardata.sh"" >> ~/.bashrc
 mv dataload.c dataalloc.c dataloading_installer.sh lib
