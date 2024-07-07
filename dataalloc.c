@@ -26,17 +26,12 @@ int main(int argc, char **argv){
 	char buffer2[S];
 	int size;
 	f = fopen(DATA_FILE,"r"); //getting shuffled input
-	printf("opened file\n");
 	for(size = atoi(argv[3]); size != 0; size){ //if more buffers to fill
 		if(subdirsize == 0){
-			
-			printf("selecting subdir\n");
+
 			subdir++; //update subdir
 			subdirsize = atoi(argv[subdir + 4]); //input size
-			printf("subdirit:%d\n",subdir);
-//			printf("subdirbuf:%s\n",subdirs[subdir]);
 			strcpy(subdirs, DD_PRE); // absolute prefix to data_dir
-			printf("appendpre\n");
 			if(subdir == 0)		
 				strcat(subdirs, "train/"); //concat end
 			else if(subdir == 1)
@@ -45,7 +40,6 @@ int main(int argc, char **argv){
 				strcat(subdirs, "validate/"); //concat end
 			
 		subdirend = strrchr(subdirs,'\0');
-		printf("appendedsubdir\n");
 		}
 		
 
@@ -58,15 +52,11 @@ int main(int argc, char **argv){
 				if(strcmp(chptr,argv[2])==0){ //validate .ext
 
 					strcpy(buffer2,argv[1]); //absolute path
-	//				printf("filename:%s\n", buffer1);
 					strcat(buffer2, buffer1); //copy over filename
 					//^^^is source
 				
 					strcat(subdirs, buffer1); //dest
-			//		printf("data:%s\n", buffer2);
-	//				printf("linkto:%s\n", subdirs[subdir]);
 					symlink(buffer2, subdirs);
-					printf("linked dir\n");
 					subdirsize--; //decrease subdir request
 					size--; //decrease total request
 					*subdirend = '\0'; //end mark
@@ -78,9 +68,7 @@ int main(int argc, char **argv){
 			break;
 		}
 	}
-
-	printf("closed file\n");
+	
 	fclose(f); //now copy the right files to the right directories	
-
 	return 0;
 }
