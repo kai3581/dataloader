@@ -24,7 +24,7 @@ int main(int argc, char **argv){
 	char buffer1[S];
 	char buffer2[S];
 	int size;
-	f = fopen("/.data_content_shuf","r"); //getting shuffled input
+	f = fopen(DATA_FILE,"r"); //getting shuffled input
 	for(size = atoi(argv[3]); size != 0; size){ //if more buffers to fill
 		if(subdirsize == 0){
 
