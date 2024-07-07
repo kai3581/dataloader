@@ -45,32 +45,35 @@ int main(int argc, char **argv){
 		strcat(subdirs, "validate/"); //concat end
 		subdirend = strrchr(subdirs,'\0');
 		}
+		printf("appendedsubdir\n");
 
-		fgets(buffer1, S, f); //get line to buffer
-		chptr = strrchr(buffer1, '\n'); //replace \n delimiter
-		*chptr = '\0';
-		chptr = strrchr(buffer1, '.'); //get last .ext
-		if(chptr){ //find last '.'
+		if(fgets(buffer1, S, f)){ //get line to buffer
+			chptr = strrchr(buffer1, '\n'); //replace \n delimiter
+			*chptr = '\0';
+			chptr = strrchr(buffer1, '.'); //get last .ext
+			if(chptr){ //find last '.'
 
-			if(strcmp(chptr,argv[2])==0){ //validate .ext
+				if(strcmp(chptr,argv[2])==0){ //validate .ext
 
-				strcpy(buffer2,argv[1]); //absolute path
-	//			printf("filename:%s\n", buffer1);
-				strcat(buffer2, buffer1); //copy over filename
-				//^^^is source
+					strcpy(buffer2,argv[1]); //absolute path
+	//				printf("filename:%s\n", buffer1);
+					strcat(buffer2, buffer1); //copy over filename
+					//^^^is source
 				
-				strcat(subdirs, buffer1); //dest
-			//	printf("data:%s\n", buffer2);
-	//			printf("linkto:%s\n", subdirs[subdir]);
-				symlink(buffer2, subdirs);
-				printf("linked dir\n");
-				subdirsize--; //decrease subdir request
-				size--; //decrease total request
-				*subdirend = '\0'; //end mark
-				//symlink to files
+					strcat(subdirs, buffer1); //dest
+			//		printf("data:%s\n", buffer2);
+	//				printf("linkto:%s\n", subdirs[subdir]);
+					symlink(buffer2, subdirs);
+					printf("linked dir\n");
+					subdirsize--; //decrease subdir request
+					size--; //decrease total request
+					*subdirend = '\0'; //end mark
+					//symlink to files
+				}
 			}
+		}else{
+			printf("%d too few '%s' files", size, argv[4]);
 		}
-	}
 
 	printf("closed file\n");
 	fclose(f); //now copy the right files to the right directories	
