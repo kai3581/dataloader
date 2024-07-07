@@ -17,6 +17,9 @@ git clone https://github.com/kai3581/dataloading.git
 
 cd dataloading
 
+#move 'README.md' temporarily so the next command does not affect it
+#(or edit back 'NETID' where you want to after)
+
 sed -i 's/NETID/student/g' ./*
 
 chmod +x dataloading_installer.sh
