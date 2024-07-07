@@ -12,7 +12,7 @@
 #define S PATH_MAX
 //dataPath is the path to the data_dir
 #define DATA_FILE "/gscratch/uwb/NETID/dataloading/data_dir/.data_content_shuf"
-#define DD_PRE "/gscratch/uwb/NETID/dataloading/data_dir"
+#define DD_PRE "/gscratch/uwb/NETID/dataloading/data_dir/"
 
 int main(int argc, char **argv){
 
@@ -33,7 +33,6 @@ int main(int argc, char **argv){
 			subdirsize = atoi(argv[subdir + 4]); //input size
 //			printf("subdirbuf:%s\n",subdirs[subdir]);
 		strcpy(subdirs[subdir], DD_PRE); // absolute prefix to data_dir
-		strcat(subdirs[subdir], "/dataloading/data_dir/"); // path prefix
 			if(subdir == 0)		
 		strcat(subdirs[subdir], "train/"); //concat end
 			else if(subdir == 1)
