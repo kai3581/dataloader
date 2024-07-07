@@ -3,7 +3,7 @@
 #include<fcntl.h>
 #include<unistd.h>
 
-#define DATA_FILE /gscratch/uwb/NETID/dataloading/data_dir/.data_content
+#define DATA_FILE "/gscratch/uwb/NETID/dataloading/data_dir/.data_content"
 
 int main(int argc, char *argv[]){
 
