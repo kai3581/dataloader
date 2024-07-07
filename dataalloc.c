@@ -61,6 +61,7 @@ int main(int argc, char **argv){
 			//	printf("data:%s\n", buffer2);
 	//			printf("linkto:%s\n", subdirs[subdir]);
 				symlink(buffer2, subdirs);
+				printf("linked dir\n");
 				subdirsize--; //decrease subdir request
 				size--; //decrease total request
 				*subdirend = '\0'; //end mark
