@@ -11,5 +11,6 @@ mkdir lib
 touch data_dir/.data_content data_dir/.data_content_shuf
 mkdir bin #isolate executables
 mv dataload dataalloc loaddata.sh cleardata.sh bin
-echo "export PATH="/gscratch/uwb/NETID/dataloading/bin:$PATH"" >> ~/.bashrc #add to PATH
+alias loaddata="./gscratch/uwb/NETID/dataloading/bin/loaddata.sh"
+alias cleardata="./gscratch/uwb/NETID/dataloading/bin/cleardata.sh"
 mv dataload.c dataalloc.c dataloading_installer.sh lib
