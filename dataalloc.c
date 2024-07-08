@@ -22,8 +22,8 @@ int main(int argc, char **argv){
 	char buffer[S]; //filename buffer
 	char src[S]; //source buffer
 	char dst[S]; //destination buffer
-	srcPrefixEnd = strcpy(src, argv[1]); //source prefix and ptr at end
-	dstPrefixEnd = strcpy(dst, DD_PRE); //destination prefix and ptr at end
+	srcPrefixEnd = stpcpy(src, argv[1]); //source prefix and ptr at end
+	dstPrefixEnd = stpcpy(dst, DD_PRE); //destination prefix and ptr at end
 	
 	int dataSize; //input size variable
 	f = fopen(DATA_FILE,"r"); //getting shuffled input from .data_content_shuf
