@@ -5,5 +5,5 @@ execDir=/gscratch/uwb/NETID/dataloader/bin
 ext=EXT
 dataSize=DATA_SIZE
 
-rm $dataDir/*$EXT
+rm $dataDir/*$ext
 $execDir/dataalloc $dataPath $ext $dataSize
