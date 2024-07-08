@@ -3,7 +3,7 @@
 #include<fcntl.h>
 #include<unistd.h>
 
-#define DATA_FILE "/gscratch/uwb/NETID/dataloading/data_dir/.data_content"
+#define DATA_FILE "/gscratch/uwb/NETID/dataloader/dataDir/.data_content"
 
 int main(int argc, char *argv[]){
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
 
 			readdir(d); //empty .
 			readdir(d); //empty ..
-			fprintf(f,"%s\n",argv[1]); //absolute path	
+			fprintf(f,"%s\n",argv[1]); //absolute path of data directory printed to DATA_FILE
 			while((dir = readdir(d)) != NULL){
 				
 				fseek(f,0L,SEEK_END);
