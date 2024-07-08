@@ -1,8 +1,8 @@
-# dataloading info
+# dataloader info
 creates a directory structure dataloading/dataDir
 with files shuffled from a data source PATH_TO_DATA in the /gscratch/uwb/ lab directory of NETID@klone.hyak.uw.edu
 
-# dataloading setup
+# dataloader setup
 #from here on, replace all instances of netid with your NetID, e.g., for student@uwb.edu, netid=student. Each line preceded by '#' is a comment to consider while following these directions to fit your implementation.
 
 #follow these steps after logging onto uw HYAK:
