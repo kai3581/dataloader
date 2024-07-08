@@ -5,5 +5,5 @@ execDir=/gscratch/uwb/NETID/dataloader/bin
 ext=EXT
 dataSize=DATA_SIZE
 
-rm "$dataDir"/*"$ext"
+find -type l -name "[^.]*" -delete
 $execDir/dataalloc $dataPath $ext $dataSize
