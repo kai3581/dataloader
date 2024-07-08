@@ -25,9 +25,9 @@ int main(int argc, char **argv){
 	srcPrefixEnd = strcpy(src, argv[1]); //source prefix and ptr at end
 	dstPrefixEnd = strcpy(dst, DD_PRE); //destination prefix and ptr at end
 	
-	int data_size; //input size variable
+	int dataSize; //input size variable
 	f = fopen(DATA_FILE,"r"); //getting shuffled input from .data_content_shuf
-	for(data_size = atoi(argv[3]); data_size != 0; data_size){ //if more files to get
+	for(dataSize = atoi(argv[3]); dataSize > 0; dataSize){ //if more files to get
 
 		if(fgets(buffer, S, f)){ //get input line, enter conditional if null not returned by fgets()
 
@@ -41,13 +41,13 @@ int main(int argc, char **argv){
 					//^^^is source
 					strcat(dst, buffer); //^^^ to destination directory
 					symlink(src, dst); //symlink the files
-					data_size--; //decrease total request
+					dataSize--; //decrease total request
 					//revert to prefixes by null terminating them
 					*srcPrefixEnd = *dstPrefixEnd = '\0';
 				}
 			}
 		}else{
-			printf("%d too few '%s' files", data_size, argv[2]);
+			printf("%d too few '%s' files", dataSize, argv[2]);
 			break;
 		}
 	}
