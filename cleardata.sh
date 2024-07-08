@@ -1,8 +1,6 @@
 #!/bin/bash
-dataDir=/gscratch/uwb/NETID/dataloading/data_dir
+dataDir=/gscratch/uwb/NETID/dataloader/dataDir
 
-rm $dataDir/train/* 2> /dev/null 
-rm $dataDir/test/* 2> /dev/null
-rm $dataDir/validate/* 2> /dev/null
+rm $dataDir/* 2> /dev/null
 rm $dataDir/.data_content $dataDir/.data_content_shuf
 touch $dataDir/.data_content $dataDir/.data_content_shuf
