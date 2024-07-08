@@ -32,10 +32,10 @@ int main(int argc, char **argv){
 		if(fgets(buffer, S, f)){ //get input line, enter conditional if null not returned by fgets()
 
 			buffer[strcspn(buffer,"\n")]='\0'; //change trailing newline to null terminator
-			extptr = strrchr(src, '.'); //get pointer to extension substring
-			if(extptr){ //find last '.' (location of extension substring)
+			extPtr = strrchr(buffer, '.'); //get pointer to extension substring
+			if(extPtr){ //find last '.' (location of extension substring)
 
-				if(strcmp(extptr,argv[2])==0){ //validate .ext, if so then load that file
+				if(strcmp(extPtr,argv[2])==0){ //validate .ext, if so then load that file
 	
 					strcat(src, buffer); //append filename to source directory
 					//^^^is source
