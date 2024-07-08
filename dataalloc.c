@@ -8,63 +8,46 @@
 // 			strcmp() strcpy() strcat()
 // 			using cp with system() sprintf()
 //			linux/limits.h, strrchr(), symlink()
-//arguments: absolute path, .ext, number, train, test, validate
+//arguments: absolute path, .ext, data_size
 #define S PATH_MAX
 //dataPath is the path to the data_dir
-#define DATA_FILE "/gscratch/uwb/NETID/dataloading/data_dir/.data_content_shuf"
-#define DD_PRE "/gscratch/uwb/NETID/dataloading/data_dir/"
+#define DATA_FILE "/gscratch/uwb/NETID/dataloading/dataDir/.data_content_shuf"
+#define DD_PRE "/gscratch/uwb/NETID/dataloader/dataDir/"
 
 int main(int argc, char **argv){
 
 	FILE *f;
-	int subdir = -1;
-	int subdirsize = 0;
-	char subdirs[S];
-	char *chptr, *subdirend;
+	char *srcPrefixEnd, *dstPrefixEnd, *extPtr; //end of prefix for src and dst, as well as extension pointer
 
-	char buffer1[S];
-	char buffer2[S];
-	int size;
-	f = fopen(DATA_FILE,"r"); //getting shuffled input
-	for(size = atoi(argv[3]); size != 0; size){ //if more buffers to fill
-		if(subdirsize == 0){
+	char buffer[S]; //filename buffer
+	char src[S]; //source buffer
+	char dst[S]; //destination buffer
+	srcPrefixEnd = strcpy(src, argv[1]); //source prefix and ptr at end
+	dstPrefixEnd = strcpy(dst, DD_PRE); //destination prefix and ptr at end
+	
+	int data_size; //input size variable
+	f = fopen(DATA_FILE,"r"); //getting shuffled input from .data_content_shuf
+	for(data_size = atoi(argv[3]); data_size != 0; data_size){ //if more files to get
 
-			subdir++; //update subdir
-			subdirsize = atoi(argv[subdir + 4]); //input size
-			strcpy(subdirs, DD_PRE); // absolute prefix to data_dir
-			if(subdir == 0)		
-				strcat(subdirs, "train/"); //concat end
-			else if(subdir == 1)
-				strcat(subdirs, "test/"); //concat end
-			else	
-				strcat(subdirs, "validate/"); //concat end
-			
-		subdirend = strrchr(subdirs,'\0');
-		}
-		
+		if(fgets(buffer, S, f)){ //get input line, enter conditional if null not returned by fgets()
 
-		if(fgets(buffer1, S, f)){ //get line to buffer
-			chptr = strrchr(buffer1, '\n'); //replace \n delimiter
-			*chptr = '\0';
-			chptr = strrchr(buffer1, '.'); //get last .ext
-			if(chptr){ //find last '.'
+			buffer[strcspn(buffer,"\n")]='\0'; //change trailing newline to null terminator
+			extptr = strrchr(src, '.'); //get pointer to extension substring
+			if(extptr){ //find last '.' (location of extension substring)
 
-				if(strcmp(chptr,argv[2])==0){ //validate .ext
-
-					strcpy(buffer2,argv[1]); //absolute path
-					strcat(buffer2, buffer1); //copy over filename
+				if(strcmp(extptr,argv[2])==0){ //validate .ext, if so then load that file
+	
+					strcat(src, buffer); //append filename to source directory
 					//^^^is source
-				
-					strcat(subdirs, buffer1); //dest
-					symlink(buffer2, subdirs);
-					subdirsize--; //decrease subdir request
-					size--; //decrease total request
-					*subdirend = '\0'; //end mark
-					//symlink to files
+					strcat(dst, buffer); //^^^ to destination directory
+					symlink(src, dst); //symlink the files
+					data_size--; //decrease total request
+					//revert to prefixes by null terminating them
+					*srcPrefixEnd = *dstPrefixEnd = '\0';
 				}
 			}
 		}else{
-			printf("%d too few '%s' files", size, argv[4]);
+			printf("%d too few '%s' files", data_size, argv[2]);
 			break;
 		}
 	}
