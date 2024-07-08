@@ -5,7 +5,7 @@ with files shuffled from a data source PATH_TO_DATA in the /gscratch/uwb/ lab di
 # dataloader setup
 #from here on, replace all instances of netid with your NetID, e.g., for student@uwb.edu, netid=student. Each line preceded by '#' is a comment to consider while following these directions to fit your implementation.
 
-#follow these steps after logging onto uw HYAK:
+#follow these steps (after having logged in with: ssh netid@klone.hyak.uw.edu):
 
 cd /gscratch/uwb/netid
 
@@ -15,7 +15,7 @@ cd dataloader
 
 #move 'README.md' temporarily so the next command does not affect it (or edit back 'NETID' where you want it after).
 
-sed -i 's/NETID/student/g' ./*
+sed -i 's/NETID/netid/g' ./*
 
 chmod +x dataloader_installer.sh
 
