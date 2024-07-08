@@ -27,3 +27,7 @@ want to extract, e.g. .png, the DATA_SIZE to the number of files you want from t
 ./dataloader_installer.sh
 
 source ~/.bashrc
+
+# Note
+As the files in the dataDir directory are symbolic, instead of loading the a file from dataDir, f, by using tf.io.read_file(f), you must use
+tf.io.read_file(os.path.realpath(f)), for which you must have imported 'os' and 'tensorflow as tf'
