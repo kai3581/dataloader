@@ -1,9 +1,10 @@
 #!/bin/bash
-dataPath=/gscratch/uwb/PATH_TO_DATA
+dataPath=PATH_TO_DATA
 dataDir=/gscratch/uwb/NETID/dataloader/dataDir
+execDir=/gscratch/uwb/NETID/dataloader/bin
 ext=EXT
 dataSize=DATA_SIZE
 
-dataload $dataPath
+$execDir/dataload $dataPath
 shuf $dataDir/.data_content > $dataDir/.data_content_shuf
-dataalloc $dataPath $ext $dataSize
+$execDir/dataalloc $dataPath $ext $dataSize
